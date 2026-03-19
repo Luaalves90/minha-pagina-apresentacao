@@ -110,11 +110,11 @@ const Hero = ({ scrollToSection, sections }) => {
             variants={itemVariants}
             className="flex-1 flex flex-col items-center"
           >
-            {/* Foto */}
+            {/* Foto - CORRIGIDA */}
             <div className="relative mb-8">
               <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-blue-500/30">
                 <img 
-                  src="/minha-pagina-apresentacao/images/foto-lua.png" 
+                  src="/minha-pagina-apresentacao/images/foto-lua.png"
                   alt="Luã Alves - Desenvolvedor Front-End"
                   className="w-full h-full object-cover"
                   style={{
@@ -122,7 +122,7 @@ const Hero = ({ scrollToSection, sections }) => {
                   }}
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = 'https://via.placeholder.com/300x300?text=Luã+Alves';
+                    e.target.src = 'https://placehold.co/300x300/1a1a1a/3b82f6?text=Luã+Alves';
                   }}
                 />
               </div>
@@ -135,7 +135,7 @@ const Hero = ({ scrollToSection, sections }) => {
               </div>
             </div>
 
-            {/* Ícones das tecnologias - COM NOME NO HOVER */}
+            {/* Ícones das tecnologias */}
             <div className="w-full overflow-x-auto pb-6" style={{ scrollbarWidth: 'none' }}>
               <motion.div 
                 variants={containerVariants}
