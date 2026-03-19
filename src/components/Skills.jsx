@@ -82,10 +82,12 @@ const Skills = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-[#1a1a1a] p-4 rounded-xl border border-gray-800 hover:border-gray-700 transition-all"
+              className="bg-[#1a1a1a] p-4 rounded-xl border border-gray-800 hover:border-gray-700 hover:shadow-lg hover:shadow-blue-600/5 transition-all group"
             >
               <div className="flex items-center gap-3 mb-3">
-                <skill.icon style={{ color: skill.color }} className="text-2xl" />
+                <div className="p-2 bg-[#252525] rounded-lg group-hover:scale-110 transition-transform">
+                  <skill.icon style={{ color: skill.color }} className="text-2xl" />
+                </div>
                 <span className="text-sm font-medium text-white">{skill.name}</span>
               </div>
               <div className="w-full h-1.5 bg-[#252525] rounded-full overflow-hidden">
@@ -98,6 +100,7 @@ const Skills = () => {
                   style={{ backgroundColor: skill.color }}
                 />
               </div>
+              <span className="text-xs text-gray-500 mt-1 block text-right">{skill.level}%</span>
             </motion.div>
           ))}
         </motion.div>
@@ -108,7 +111,7 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="p-8 bg-[#1a1a1a] rounded-xl border border-gray-800"
+          className="p-8 bg-[#1a1a1a] rounded-xl border border-gray-800 hover:border-gray-700 transition-all"
         >
           <h3 className="text-xl font-semibold mb-6 text-center text-white">
             Soft Skills
@@ -122,7 +125,7 @@ const Skills = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.02 }}
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="px-3 py-1.5 bg-[#252525] rounded-full text-xs text-gray-300 border border-gray-700 hover:border-blue-500/50 transition-all"
+                className="px-3 py-1.5 bg-[#252525] rounded-full text-xs text-gray-300 border border-gray-700 hover:border-blue-500/50 hover:bg-blue-500/10 transition-all"
               >
                 {skill}
               </motion.span>
@@ -138,7 +141,7 @@ const Skills = () => {
           transition={{ delay: 0.6 }}
           className="mt-8 text-center"
         >
-          <span className="text-sm text-gray-400">
+          <span className="text-sm text-gray-400 bg-[#1a1a1a] px-4 py-2 rounded-full border border-gray-800">
             <span className="text-blue-400 font-semibold">Diferencial:</span> Front-End + Dados + Negócios
           </span>
         </motion.div>

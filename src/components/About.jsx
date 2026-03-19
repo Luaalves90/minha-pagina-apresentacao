@@ -84,7 +84,7 @@ const About = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Sobre <span className="gradient-text">Mim</span>
+            Sobre <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">Mim</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full" />
         </motion.div>
@@ -130,8 +130,11 @@ const About = () => {
               className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8"
             >
               {highlights.map((item, index) => (
-                <div key={index} className="bg-[#1a1a1a] p-4 rounded-xl border border-gray-800">
-                  <item.icon style={{ color: item.color }} className="text-2xl mb-2" />
+                <div 
+                  key={index} 
+                  className="bg-[#1a1a1a] p-4 rounded-xl border border-gray-800 hover:border-gray-700 transition-all group"
+                >
+                  <item.icon style={{ color: item.color }} className="text-2xl mb-2 group-hover:scale-110 transition-transform" />
                   <h4 className="text-sm font-semibold text-white mb-1">{item.title}</h4>
                   <p className="text-xs text-gray-400">{item.description}</p>
                 </div>
@@ -143,15 +146,15 @@ const About = () => {
               variants={itemVariants}
               className="flex flex-wrap gap-4 text-sm text-gray-400"
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 bg-[#1a1a1a] px-3 py-1.5 rounded-full border border-gray-800">
                 <FiMapPin className="text-blue-400" />
                 <span>Rio de Janeiro, RJ</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 bg-[#1a1a1a] px-3 py-1.5 rounded-full border border-gray-800">
                 <FiCalendar className="text-blue-400" />
                 <span>35 anos</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 bg-[#1a1a1a] px-3 py-1.5 rounded-full border border-gray-800">
                 <FiAward className="text-blue-400" />
                 <span>ADS (cursando)</span>
               </div>
@@ -174,8 +177,11 @@ const About = () => {
               
               <div className="space-y-4">
                 {experiences.map((exp, index) => (
-                  <div key={index} className="relative pl-6 border-l-2 border-gray-700 hover:border-blue-500 transition-colors">
-                    <div className="absolute left-[-5px] top-1 w-2 h-2 bg-blue-500 rounded-full" />
+                  <div 
+                    key={index} 
+                    className="relative pl-6 border-l-2 border-gray-700 hover:border-blue-500 transition-colors group"
+                  >
+                    <div className="absolute left-[-5px] top-1 w-2 h-2 bg-blue-500 rounded-full group-hover:scale-150 transition-transform" />
                     <span className="text-xs text-blue-400 font-medium">{exp.period}</span>
                     <h4 className="text-base font-semibold text-white mt-1">{exp.title}</h4>
                     <p className="text-xs text-gray-500 mb-1">{exp.company}</p>
@@ -192,12 +198,12 @@ const About = () => {
                 Certificações
               </h3>
               
-              <div className="bg-[#1a1a1a] p-6 rounded-xl border border-gray-800">
+              <div className="bg-[#1a1a1a] p-6 rounded-xl border border-gray-800 hover:border-gray-700 transition-all">
                 <ul className="space-y-3">
                   {certifications.map((cert, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <span className="text-blue-400 mt-1">✔</span>
-                      <span className="text-sm text-gray-300">{cert}</span>
+                    <li key={index} className="flex items-start gap-3 group">
+                      <span className="text-blue-400 mt-1 group-hover:scale-110 transition-transform">✔</span>
+                      <span className="text-sm text-gray-300 group-hover:text-white transition-colors">{cert}</span>
                     </li>
                   ))}
                 </ul>

@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import WhatsAppButton from './components/WhatsAppButton';
 import About from './components/About';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
+import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -49,33 +49,34 @@ function App() {
       />
       
       <main>
-        {/* Hero Section - AGORA USA O COMPONENTE */}
+        {/* Hero Section */}
         <section ref={sections.home} id="home">
           <Hero scrollToSection={scrollToSection} sections={sections} />
         </section>
         
         {/* About Section */}
         <section ref={sections.about} id="about">
-  <About />
-</section>
+          <About />
+        </section>
         
         {/* Projects Section */}
-       <section ref={sections.projects} id="projects">
-  <Projects />
-</section>
+        <section ref={sections.projects} id="projects">
+          <Projects />
+        </section>
         
         {/* Skills Section */}
         <section ref={sections.skills} id="skills">
-  <Skills />
-</section>
+          <Skills />
+        </section>
         
         {/* Contact Section */}
         <section ref={sections.contact} id="contact">
-  <Contact />
-</section>
-
-      <WhatsAppButton />
+          <Contact />
+        </section>
       </main>
+
+      {/* WhatsApp Button - Flutuante fora do main */}
+      <WhatsAppButton />
     </div>
   );
 }

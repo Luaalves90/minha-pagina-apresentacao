@@ -112,7 +112,7 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Vamos <span className="gradient-text">Conversar?</span>
+            Vamos <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">Conversar?</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-4" />
           <p className="text-gray-400 max-w-2xl mx-auto">
@@ -129,7 +129,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-[#1a1a1a] p-8 rounded-xl border border-gray-800">
+            <div className="bg-[#1a1a1a] p-8 rounded-xl border border-gray-800 hover:border-gray-700 transition-all">
               <h3 className="text-2xl font-semibold mb-6 text-white">Envie uma Mensagem</h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -292,14 +292,14 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 * index }}
-                className="bg-[#1a1a1a] p-6 rounded-xl border border-gray-800 hover:border-gray-700 transition-all"
+                className="bg-[#1a1a1a] p-6 rounded-xl border border-gray-800 hover:border-gray-700 transition-all group"
               >
                 {info.link ? (
                   <a 
                     href={info.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 group"
+                    className="flex items-center gap-4"
                   >
                     <div className="p-3 bg-[#252525] rounded-lg group-hover:scale-110 transition-transform">
                       <info.icon style={{ color: info.color }} className="text-2xl" />
@@ -355,6 +355,7 @@ const Contact = () => {
                 Clique para iniciar uma conversa no WhatsApp
               </p>
             </motion.a>
+
             
           </motion.div>
         </div>

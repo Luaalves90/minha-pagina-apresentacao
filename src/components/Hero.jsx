@@ -37,7 +37,7 @@ const Hero = ({ scrollToSection, sections }) => {
 
   return (
     <div className="min-h-screen relative overflow-hidden pt-20">
-      {/* Background simples */}
+      {/* Background gradiente */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10" />
       
       {/* Conteúdo */}
@@ -60,7 +60,9 @@ const Hero = ({ scrollToSection, sections }) => {
               variants={itemVariants}
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-3"
             >
-              <span className="gradient-text">Luã Alves</span>
+              <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+                Luã Alves
+              </span>
             </motion.h1>
 
             <motion.h2 
@@ -85,7 +87,7 @@ const Hero = ({ scrollToSection, sections }) => {
             >
               <motion.button
                 onClick={() => scrollToSection(sections.projects)}
-                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-medium text-sm"
+                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-medium text-sm hover:shadow-lg hover:shadow-blue-600/25 transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -112,11 +114,15 @@ const Hero = ({ scrollToSection, sections }) => {
             <div className="relative mb-8">
               <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-blue-500/30">
                 <img 
-                  src="/foto-lua.jpg.png" 
+                  src="/minha-pagina-apresentacao/images/foto-lua.png" 
                   alt="Luã Alves - Desenvolvedor Front-End"
                   className="w-full h-full object-cover"
                   style={{
                     objectPosition: 'center 20%'
+                  }}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://via.placeholder.com/300x300?text=Luã+Alves';
                   }}
                 />
               </div>
@@ -130,7 +136,7 @@ const Hero = ({ scrollToSection, sections }) => {
             </div>
 
             {/* Ícones das tecnologias - COM NOME NO HOVER */}
-            <div className="w-full overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
+            <div className="w-full overflow-x-auto pb-6" style={{ scrollbarWidth: 'none' }}>
               <motion.div 
                 variants={containerVariants}
                 initial="hidden"
@@ -141,7 +147,7 @@ const Hero = ({ scrollToSection, sections }) => {
                   <motion.div
                     key={name}
                     variants={itemVariants}
-                    className="group relative flex-shrink-0 mb-6"
+                    className="group relative flex-shrink-0"
                     whileHover={{ y: -3 }}
                   >
                     <div className="bg-[#1a1a1a] p-2.5 rounded-lg border border-gray-800 hover:border-gray-700 transition-all">

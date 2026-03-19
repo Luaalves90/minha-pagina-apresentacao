@@ -8,7 +8,7 @@ const Projects = () => {
       id: 1,
       title: "Dermacare - Clínica Dermatológica",
       description: "Site institucional completo com sistema de agendamento online em tempo real, chatbot interativo para triagem, teste educativo de tipo de pele e galeria de antes/depois. Foco em conversão e experiência do usuário.",
-      image: "/images/dermacare.jpg.png", // SUA IMAGEM AQUI
+      image: "/minha-pagina-apresentacao/images/dermacare.png", // CORRIGIDO: caminho e extensão
       technologies: [
         { name: "HTML5", icon: FaHtml5, color: "#E34F26" },
         { name: "CSS3", icon: FaCss3Alt, color: "#1572B6" },
@@ -22,7 +22,7 @@ const Projects = () => {
       id: 2,
       title: "Silva & Ferino Advogados",
       description: "Site institucional para escritório de advocacia especializado em direito médico. Navegação completa, seções institucionais, depoimentos, formulário de contato funcional e botões de ação para WhatsApp.",
-      image: "/images/silva-ferino.jpg.png", // SUA IMAGEM AQUI
+      image: "/minha-pagina-apresentacao/images/silva-ferino.png", // CORRIGIDO: caminho e extensão
       technologies: [
         { name: "HTML5", icon: FaHtml5, color: "#E34F26" },
         { name: "CSS3", icon: FaCss3Alt, color: "#1572B6" },
@@ -36,7 +36,7 @@ const Projects = () => {
       id: 3,
       title: "Dashboard de Atendimentos",
       description: "Dashboard interativo desenvolvido com React para visualização de dados de atendimentos. Exibe métricas em tempo real, gráficos comparativos, análise de tendências e distribuição de clientes (novos vs. recorrentes).",
-      image: "/images/dashboard.jpg.png", // SUA IMAGEM AQUI
+      image: "/minha-pagina-apresentacao/images/dashboard.png", // CORRIGIDO: caminho e extensão
       technologies: [
         { name: "React", icon: FaReact, color: "#61DAFB" },
         { name: "JavaScript", icon: FaJs, color: "#F7DF1E" },
@@ -67,6 +67,12 @@ const Projects = () => {
     }
   };
 
+  // Função para lidar com erro de imagem
+  const handleImageError = (e) => {
+    e.target.onerror = null;
+    e.target.src = 'https://via.placeholder.com/800x400?text=Projeto+Indisponível';
+  };
+
   return (
     <section className="py-20 bg-[#0a0a0a]">
       <div className="container mx-auto px-4">
@@ -79,7 +85,7 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Projetos em <span className="gradient-text">Destaque</span>
+            Projetos em <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">Destaque</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-4" />
           <p className="text-gray-400 max-w-2xl mx-auto">
@@ -107,15 +113,14 @@ const Projects = () => {
                 href={project.liveLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block relative h-48 overflow-hidden"
+                className="block relative h-48 overflow-hidden bg-[#252525]"
               >
                 <img 
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  onError={(e) => {
-                    e.target.src = "https://via.placeholder.com/800x400?text=Projeto";
-                  }}
+                  onError={handleImageError}
+                  loading="lazy" // Adicionado lazy loading para performance
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
